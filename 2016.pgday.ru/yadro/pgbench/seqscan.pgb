@@ -1,0 +1,2 @@
+\setrandom eid 1 9999956
+select id, job_reference from job_stats_80000 where employer_id = :eid;

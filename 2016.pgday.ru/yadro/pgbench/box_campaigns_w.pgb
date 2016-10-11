@@ -1,0 +1,8 @@
+\setrandom id 1 3000000
+\setrandom id2 1 3000000
+\setrandom id3 1 3000000
+\setrandom ops 1 1000000
+delete from box_campaigns where id = :id3;
+update box_campaigns set creator_id = (select string_agg(md5(j::text),'') from generate_series(1,3) gs(j)) where id = :id;
+update box_campaigns set option_code = :ops, registered_at = now() where id = :id2;
+insert into box_campaigns (id, created_at, finished_at, against_id, option_code, registered_at, process_id, return_result_id) select :id3, now(), now(), random() * 10000000, random() * 10000000, now(), random() * 10000000, random() * 10000000 FROM generate_series(1,1) AS gs(i);

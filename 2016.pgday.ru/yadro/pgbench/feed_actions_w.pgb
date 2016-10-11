@@ -1,0 +1,9 @@
+\setrandom id 1 3000000
+\setrandom id2 1 3000000
+\setrandom id3 1 3000000
+\setrandom action 1 100000
+\setrandom eid 1 100000
+delete from feed_actions where id = :id3;
+update feed_actions set action = :action, updated_at = now() where id = :id;
+update feed_actions set employer_id = :eid, updated_at = now() where id = :id2;
+insert into feed_actions (id, created_at, updated_at, job_board_id, action, requested_at, employer_id, response_code) SELECT :id3, now(), now(), random() * 10000000, random() * 10000000, now(), random() * 10000000, random() * 10000000 FROM generate_series(1,1) AS gs(i) 

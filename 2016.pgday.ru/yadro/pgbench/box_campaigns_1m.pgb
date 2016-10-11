@@ -1,0 +1,2 @@
+\setrandom id 1 100000
+select created_at from box_campaigns where id = :id;

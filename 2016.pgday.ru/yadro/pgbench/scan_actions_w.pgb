@@ -1,0 +1,6 @@
+\setrandom id 1 3000000
+\setrandom id2 1 3000000
+\setrandom weight 1 100000
+\setrandom ops 1 10000
+update scan_actions set weight = :weight, operation_status = :ops where id = :id;
+update scan_actions set content = (select string_agg(md5(j::text),'') from generate_series(1,20) gs(j)), last_accessed_at = now() where id = :id2;

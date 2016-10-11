@@ -1,0 +1,14 @@
+# Write-only load
+* * * * *	/usr/pgsql-9.5/bin/pgbench -n -f $(ls -1 /var/lib/pgsql/pgday-2016-stuff/yadro/pgbench/*_w.pgb |shuf -n 1) -c 4 -j 2 -T $(shuf -i 300-600 -n 1) -U pgday_app pgday
+
+# Read-only load
+* * * * *	/usr/pgsql-9.5/bin/pgbench -n -f $(ls -1 /var/lib/pgsql/pgday-2016-stuff/yadro/pgbench/*_r.pgb |shuf -n 1) -c 12 -j 4 -T $(shuf -i 500-600 -n 1) -U pgday_app pgday
+
+# Seqscan load
+*/5 * * * *	/usr/pgsql-9.5/bin/pgbench -n -f $(ls -1 /var/lib/pgsql/pgday-2016-stuff/yadro/pgbench/seqscan*.pgb |shuf -n 1) -c $(shuf -i 1-3 -n 1) -T $(shuf -i 180-300 -n 1) -U pgday_app pgday
+
+# pgBench Read/Write load
+*/5 * * * *	/usr/pgsql-9.5/bin/pgbench -c $(shuf -i 2-6 -n 1) -T $(shuf -i 240-300 -n 1) -U pgday_bench pgday
+
+#
+*/30 * * * *	 for i in $(ls -1 /var/lib/pgsql/pgday-2016-stuff/yadro/pgbench/*_1m.pgb); do /usr/pgsql-9.5/bin/pgbench -n -f $i -T $(shuf -i 420-600 -n 1) -c 12 -j 6 pgday & done

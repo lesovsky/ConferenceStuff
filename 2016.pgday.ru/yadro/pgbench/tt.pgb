@@ -1,0 +1,3 @@
+\setrandom id 1 20
+delete from tt where id = :id;
+insert into tt (id,payload)  SELECT :id,(select string_agg(md5(j::text),'') from generate_series(1,3) gs(j)) FROM generate_series(1,1);

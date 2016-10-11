@@ -1,0 +1,2 @@
+\setrandom id 1 100000
+select scanned_at from scan_actions where id = :id;

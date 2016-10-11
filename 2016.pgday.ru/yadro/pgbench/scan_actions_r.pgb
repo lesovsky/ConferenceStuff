@@ -1,0 +1,2 @@
+\setrandom id 1 3000000
+select device_id, property_id, operation_status, scanned_at, content from scan_actions where id = :id;

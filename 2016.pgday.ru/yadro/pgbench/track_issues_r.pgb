@@ -1,0 +1,2 @@
+\setrandom id 1 3000000
+select reporter_id, caiter_id, recorded_at, registered_at, first_download_at, history, opts_list from track_issues where id = :id;

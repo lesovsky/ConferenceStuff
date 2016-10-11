@@ -1,0 +1,2 @@
+\setrandom id 1 3000000
+select creator_id, created_at, option_code, return_result_id from box_campaigns where id = :id;

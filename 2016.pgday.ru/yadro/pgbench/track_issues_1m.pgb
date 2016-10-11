@@ -1,0 +1,2 @@
+\setrandom id 1 100000
+select recorded_at from track_issues where id = :id;

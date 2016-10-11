@@ -1,0 +1,2 @@
+\setrandom id 1 100000
+select created_at from task_events where id = :id;

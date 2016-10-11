@@ -1,0 +1,2 @@
+\setrandom device 86 9999831
+select id, applicant_status, created_at from job_stats_160000 where device = :device;
