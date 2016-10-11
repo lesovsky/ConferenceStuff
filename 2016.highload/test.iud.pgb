@@ -1,0 +1,6 @@
+\set a random(1,1000)
+\set b random(1,1000)
+\set c random(1,1000)
+insert into test (v_id, value) values (:a, md5(random()::text));
+update test set value = md5(random()::text) where v_id between :b and :b+10;
+delete from test where v_id = :c;
