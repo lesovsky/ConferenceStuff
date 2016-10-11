@@ -1,0 +1,4 @@
+\setrandom g_id 1 10000
+\setrandom g_players 20 100
+\setrandom g_weight 20 100
+UPDATE games SET players = :g_players, weight = :g_weight WHERE id IN (:g_id, :g_id+1, :g_id+2);

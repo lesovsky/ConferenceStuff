@@ -1,0 +1,2 @@
+\setrandom p_id 1 1500000
+SELECT * FROM products WHERE id = :p_id;

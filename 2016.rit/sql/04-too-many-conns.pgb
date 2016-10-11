@@ -1,0 +1,2 @@
+\setrandom num 1 10000
+SELECT :num;
