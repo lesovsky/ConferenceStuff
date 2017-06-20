@@ -1,0 +1,5 @@
+export PATH=$PATH:/usr/pgsql-9.5/bin
+fail=$(tput setaf 1)
+calm=$(tput setaf 2)
+sand=$(tput setaf 3)
+reset=$(tput sgr0)

@@ -1,0 +1,15 @@
+ALTER SYSTEM SET shared_preload_libraries TO 'pg_stat_statements';
+ALTER SYSTEM SET track_commit_timestamp TO on;
+ALTER SYSTEM SET hot_standby_feedback TO on;
+ALTER SYSTEM SET log_min_duration_statement TO 1000;
+ALTER SYSTEM SET log_checkpoints TO on;
+ALTER SYSTEM SET log_line_prefix TO '%m %p %u@%d from %h [vxid:%v txid:%x] [%i] ';
+ALTER SYSTEM SET log_lock_waits TO on;
+ALTER SYSTEM SET log_replication_commands TO on;
+ALTER SYSTEM SET log_temp_files TO 0;
+ALTER SYSTEM SET track_activities TO on;
+ALTER SYSTEM SET track_counts TO on;
+ALTER SYSTEM SET track_io_timing TO on;
+ALTER SYSTEM SET track_functions TO 'all';
+ALTER SYSTEM SET track_activity_query_size TO 4096;
+ALTER SYSTEM SET log_autovacuum_min_duration TO 10000;
