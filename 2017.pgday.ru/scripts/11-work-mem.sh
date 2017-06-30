@@ -22,7 +22,7 @@ psql -qAtX -U postgres -c "show work_mem"
 
 read -p "${sand}Press any key to start pgbench.${reset}"
 echo -n -e "${sand}Start pgbench... \n${reset}"
-pgbench -c 8 -T 60 -P 10 -U postgres -f sql/10-work-mem-test.pgb pgbench_6gb
+pgbench -c 8 -T 60 -P 10 -U postgres -f sql/11-work-mem-test.pgb pgbench_6gb
 
 read -p "${sand}Show pg_stat_statements.${reset}"
 psql -P pager=off -c "select datname,temp_files,pg_size_pretty(temp_bytes) from pg_stat_database where datname = 'pgbench_6gb'" -U postgres pgbench_6gb
@@ -31,7 +31,7 @@ read -p "${sand}Show pg_stat_statements.${reset}"
 psql -P pager=off -x -c "select * from pg_stat_statements where query ~* 'from products'" -U postgres pgbench_6gb
 
 read -p "${sand}Show pg_stat_statements report.${reset}"
-psql -P pager=on -f sql/09-query_stat_total.sql -U postgres pgbench_6gb
+psql -P pager=on -f sql/10-query_stat_total.sql -U postgres pgbench_6gb
 
 read -p "${sand}Press any key to continue.${reset}"
 echo -n -e "${sand}Increase work_mem ${reset}"
@@ -40,4 +40,6 @@ psql -U postgres -c "select pg_reload_conf()" &>/dev/null && echo "${calm}OK${re
 
 read -p "${sand}Press any key to start pgbench.${reset}"
 echo -n -e "${sand}Start pgbench... \n${reset}"
-pgbench -c 8 -T 60 -P 10 -U postgres -f sql/10-work-mem-test.pgb pgbench_6gb
+pgbench -c 8 -T 60 -P 10 -U postgres -f sql/11-work-mem-test.pgb pgbench_6gb
+
+echo ${calm}End.${reset}

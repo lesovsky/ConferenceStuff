@@ -17,7 +17,7 @@ read -p "${sand}Show non-granted locks.${reset}"
 psql -P pager=on -U postgres -c "select locktype,relation::regclass,pid,mode from pg_locks where not granted"
 
 read -p "${sand}Show locks tree information.${reset}"
-psql -P pager=on -U postgres -f sql/07-show-locks-tree.sql
+psql -P pager=on -U postgres -f sql/08-show-locks-tree.sql
 
 read -p "${sand}Show advanced locks information.${reset}"
-psql -P pager=on -x -U postgres -f sql/07-show-locks.sql
+psql -P pager=on -x -U postgres -f sql/08-show-locks.sql
