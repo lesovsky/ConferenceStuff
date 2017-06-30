@@ -19,7 +19,7 @@ sudo -u postgres pgbench -i -s 20 -p 20000
 echo ${calm}Done.${reset}
 
 read -p "${sand}Press Enter to run test workload.${reset}"
-sudo -u postgres pgbench -T 60 -P 5 -c 8 -p 20000 2>/dev/null
+sudo -u postgres pgbench -T 60 -P 5 -c 8 -p 20000
 echo ${calm}Done.${reset}
 
 read -p "${sand}Press Enter to remove pg_xlog content.${reset}"
